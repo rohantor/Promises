@@ -66,7 +66,7 @@ function App() {
   return (
     <div className='App'>
       <div className='grid-container'>
-        {/* {typeof value === 'object' ? <Card value={value} /> : <h1>{value} </h1>} */}
+        {typeof value === 'object' ? <Card value={value} /> : <h1>{value} </h1>}
         {all.map((element) => {
           console.log('element', element)
           return element === null ? (
