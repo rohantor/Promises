@@ -54,13 +54,13 @@ function App() {
     //     })
     //   })
     // }
-    // try {
-    //   GetPromise().then((value) => {
-    //     setValue(value)
-    //   })
-    // } catch (err) {
-    //   console.log(err)
-    // }
+    try {
+      GetPromise().then((value) => {
+        setValue(value)
+      })
+    } catch (err) {
+      console.log(err)
+    }
   }, [])
 
   return (
