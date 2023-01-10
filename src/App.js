@@ -30,30 +30,30 @@ function App() {
   useEffect(() => {
     // looping()
     // GetAllPromiseData()
-    //using async await
-    // ;(async () => {
-    //   for (let i = 0; i < UserIdList.length; i++) {
-    //     console.log(`${i + 1} called`)
-    //     const data = await getUserById(i + 1)
-    //     setAll((prevList) => {
-    //       const newList = [...prevList] // create a copy of the list
-    //       newList[i] = data // update the item at the correct index
-    //       return newList
-    //     })
-    //     console.log(`${i + 1}`, data)
-    //   }
-    // })()
-
-    //using .then()
-    for (let i = 0; i < UserIdList.length; i++) {
-      getUserById(i + 1).then((data) => {
+    // using async await
+    ;(async () => {
+      for (let i = 0; i < UserIdList.length; i++) {
+        console.log(`${i + 1} called`)
+        const data = await getUserById(i + 1)
         setAll((prevList) => {
           const newList = [...prevList] // create a copy of the list
           newList[i] = data // update the item at the correct index
           return newList
         })
-      })
-    }
+        console.log(`${i + 1}`, data)
+      }
+    })()
+
+    //using .then()
+    // for (let i = 0; i < UserIdList.length; i++) {
+    //   getUserById(i + 1).then((data) => {
+    //     setAll((prevList) => {
+    //       const newList = [...prevList] // create a copy of the list
+    //       newList[i] = data // update the item at the correct index
+    //       return newList
+    //     })
+    //   })
+    // }
     // try {
     //   GetPromise().then((value) => {
     //     setValue(value)
