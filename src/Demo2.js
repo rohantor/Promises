@@ -1,11 +1,11 @@
-export const GetPromise =()=>{
-
- return new Promise((resolve, reject) => {
+export const GetPromise = () => {
+  return new Promise((resolve, reject) => {
     fetch('https://jsonplaceholder.typicode.com/todos/1')
-      .then((res) =>{
-       let jsonContain = res.json()
-       console.log(jsonContain)
-       return jsonContain})
+      .then((res) => {
+        let jsonContain = res.json()
+        console.log(jsonContain)
+        return jsonContain
+      })
       .then((res) => resolve(res))
       .catch((err) => {
         reject(err)
@@ -27,24 +27,27 @@ export const GetPromiseById = (id) => {
       })
   })
 }
+
 export const GetPromiseArray = (arr) => {
   let PromiseArray = []
-  for(let i = 0 ; i<arr.length;i++){
-PromiseArray.push(GetPromiseById(arr[i]))
+  for (let i = 0; i < arr.length; i++) {
+    PromiseArray.push(GetPromiseById(arr[i]))
   }
-return PromiseArray;
+  return PromiseArray
 }
-
-export const GetPromiseAll = async(arr) => {
+export const PromiseSequence = async (arr) => {
+  let resultArr=[];
+  for (let i = 0; i < arr.length; i++) {
+    const result = await GetPromiseById(arr[i])
+  }
+}
+export const GetPromiseAll = async (arr) => {
   return Promise.all([...GetPromiseArray(arr)])
     .then((res) => {
-      console.log({ res });
-      return res;
+      console.log({ res })
+      return res
     })
     .catch((err) => {
-      console.log({ err });
-    });
+      console.log({ err })
+    })
 }
-
-
-
